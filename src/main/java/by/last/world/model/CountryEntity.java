@@ -1,14 +1,13 @@
 package by.last.world.model;
 
 import javax.persistence.*;
-import java.io.Serializable;
 
 @Entity
 @Table(name = "country", schema = "world")
 public class CountryEntity {
     private String code;
     private String name;
-    private Serializable continent;
+    private Continent continent;
     private String region;
     private double surfaceArea;
     private Short indepYear;
@@ -42,13 +41,13 @@ public class CountryEntity {
         this.name = name;
     }
 
-    @Basic
     @Column(name = "Continent")
-    public Serializable getContinent() {
+    @Convert(converter = ContinentConverter.class)
+    public Continent getContinent() {
         return continent;
     }
 
-    public void setContinent(Serializable continent) {
+    public void setContinent(Continent continent) {
         this.continent = continent;
     }
 
@@ -221,5 +220,76 @@ public class CountryEntity {
         result = 31 * result + (capital != null ? capital.hashCode() : 0);
         result = 31 * result + (code2 != null ? code2.hashCode() : 0);
         return result;
+    }
+
+    private enum Continent {
+        ASIA(Continents.ASIA),
+        EUROPE(Continents.EUROPE),
+        NORTH_AMERICA(Continents.NORTH_AMERICA),
+        AFRICA(Continents.AFRICA),
+        OCEANIA(Continents.OCEANIA),
+        ANTARCTICA(Continents.ANTARCTICA),
+        SOUTH_AMERICA(Continents.SOUTH_AMERICA);
+
+        private static class Continents {
+            private static final String ASIA = "Asia";
+            private static final String EUROPE = "Europe";
+            private static final String NORTH_AMERICA = "North America";
+            private static final String AFRICA = "Africa";
+            private static final String OCEANIA = "Oceania";
+            private static final String ANTARCTICA = "Antarctica";
+            private static final String SOUTH_AMERICA = "South America";
+        }
+
+        private final String continent;
+
+        Continent(String continent) {
+            this.continent = continent;
+        }
+
+        public String getContinent() {
+            return continent;
+        }
+
+        public static Continent fromCode(String value) {
+            switch (value) {
+                case Continents.ASIA:
+                    return ASIA;
+                case Continents.EUROPE:
+                    return EUROPE;
+                case Continents.NORTH_AMERICA:
+                    return NORTH_AMERICA;
+                case Continents.AFRICA:
+                    return AFRICA;
+                case Continents.OCEANIA:
+                    return OCEANIA;
+                case Continents.ANTARCTICA:
+                    return ANTARCTICA;
+                case Continents.SOUTH_AMERICA:
+                    return SOUTH_AMERICA;
+                default:
+                    return null;
+            }
+        }
+    }
+
+    @Converter
+    private static class ContinentConverter implements AttributeConverter<Continent, String> {
+
+        @Override
+        public String convertToDatabaseColumn(Continent value) {
+            if (value == null) {
+                return null;
+            }
+            return value.getContinent();
+        }
+
+        @Override
+        public Continent convertToEntityAttribute(String value) {
+            if (value == null) {
+                return null;
+            }
+            return Continent.fromCode(value);
+        }
     }
 }

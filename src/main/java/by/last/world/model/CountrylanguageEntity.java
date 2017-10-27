@@ -1,7 +1,6 @@
 package by.last.world.model;
 
 import javax.persistence.*;
-import java.io.Serializable;
 
 @Entity
 @Table(name = "countrylanguage", schema = "world")
@@ -9,7 +8,7 @@ import java.io.Serializable;
 public class CountrylanguageEntity {
     private String countryCode;
     private String language;
-    private Serializable isOfficial;
+    private IsOfficial isOfficial;
     private double percentage;
 
     @Id
@@ -32,13 +31,13 @@ public class CountrylanguageEntity {
         this.language = language;
     }
 
-    @Basic
-    @Column(name = "IsOfficial")
-    public Serializable getIsOfficial() {
+    @Enumerated(EnumType.STRING)
+    @Column(name = "isOfficial")
+    public IsOfficial getIsOfficial() {
         return isOfficial;
     }
 
-    public void setIsOfficial(Serializable isOfficial) {
+    public void setIsOfficial(IsOfficial isOfficial) {
         this.isOfficial = isOfficial;
     }
 
@@ -77,5 +76,9 @@ public class CountrylanguageEntity {
         temp = Double.doubleToLongBits(percentage);
         result = 31 * result + (int) (temp ^ (temp >>> 32));
         return result;
+    }
+
+    private enum IsOfficial {
+        T, F
     }
 }
