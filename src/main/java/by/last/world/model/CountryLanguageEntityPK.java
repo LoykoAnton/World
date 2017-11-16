@@ -4,7 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Id;
 import java.io.Serializable;
 
-public class CountrylanguageEntityPK implements Serializable {
+public class CountryLanguageEntityPK implements Serializable {
     private String countryCode;
     private String language;
 
@@ -33,7 +33,7 @@ public class CountrylanguageEntityPK implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        CountrylanguageEntityPK that = (CountrylanguageEntityPK) o;
+        CountryLanguageEntityPK that = (CountryLanguageEntityPK) o;
 
         if (countryCode != null ? !countryCode.equals(that.countryCode) : that.countryCode != null) return false;
         if (language != null ? !language.equals(that.language) : that.language != null) return false;

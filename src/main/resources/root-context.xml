@@ -11,6 +11,8 @@
 		http://www.springframework.org/schema/tx/spring-tx.xsd">
 
     <context:annotation-config/>
+    <context:component-scan base-package="by.last.world.controller"/>
+    <context:component-scan base-package="by.last.world.dao"/>
 
     <tx:annotation-driven/>
 

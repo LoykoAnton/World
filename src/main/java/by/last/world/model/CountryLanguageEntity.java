@@ -4,8 +4,8 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "countrylanguage", schema = "world")
-@IdClass(CountrylanguageEntityPK.class)
-public class CountrylanguageEntity {
+@IdClass(CountryLanguageEntityPK.class)
+public class CountryLanguageEntity {
     private String countryCode;
     private String language;
     private IsOfficial isOfficial;
@@ -56,7 +56,7 @@ public class CountrylanguageEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        CountrylanguageEntity that = (CountrylanguageEntity) o;
+        CountryLanguageEntity that = (CountryLanguageEntity) o;
 
         if (Double.compare(that.percentage, percentage) != 0) return false;
         if (countryCode != null ? !countryCode.equals(that.countryCode) : that.countryCode != null) return false;

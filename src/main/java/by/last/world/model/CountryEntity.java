@@ -274,7 +274,7 @@ public class CountryEntity {
     }
 
     @Converter
-    private static class ContinentConverter implements AttributeConverter<Continent, String> {
+    public static class ContinentConverter implements AttributeConverter<Continent, String> {
 
         @Override
         public String convertToDatabaseColumn(Continent value) {

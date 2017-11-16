@@ -9,6 +9,7 @@ public class CityEntity {
     private String name;
     private String district;
     private int population;
+    private CountryEntity countryEntity;
 
     @Id
     @Column(name = "ID")
@@ -72,5 +73,15 @@ public class CityEntity {
         result = 31 * result + (district != null ? district.hashCode() : 0);
         result = 31 * result + population;
         return result;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "CountryCode", foreignKey = @ForeignKey(name = "city_ibfk_1"))
+    public CountryEntity getCountryEntity() {
+        return countryEntity;
+    }
+
+    public void setCountryEntity(CountryEntity countryEntity) {
+        this.countryEntity = countryEntity;
     }
 }

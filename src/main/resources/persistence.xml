@@ -11,8 +11,8 @@
 
         <class>by.last.world.model.CountryEntity</class>
         <class>by.last.world.model.CityEntity</class>
-        <class>by.last.world.model.CountrylanguageEntity</class>
-        <class>by.last.world.model.CountrylanguageEntityPK</class>
+        <class>by.last.world.model.CountryLanguageEntity</class>
+        <class>by.last.world.model.CountryLanguageEntityPK</class>
 
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
