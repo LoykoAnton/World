@@ -21,6 +21,6 @@ public class CountryDAO extends DAO<CountryEntity> {
 
     @Override
     public List<CountryEntity> getAll() {
-        return entityManager.createQuery("FROM CountryEntity" , CountryEntity.class).getResultList();
+        return entityManager.createQuery("FROM CountryEntity order by name" , CountryEntity.class).getResultList();
     }
 }

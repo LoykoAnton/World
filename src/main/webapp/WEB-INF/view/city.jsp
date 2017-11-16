@@ -3,32 +3,19 @@
     <div class="bg-faded p-4 my-4">
         <div class="card-header" role="tab" id="headingOne">
             <h5 class="mb-0">
-                <a data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Add
-                    City</a>
+                <a data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Add City</a>
             </h5>
         </div>
+
         <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne"
              data-parent="#accordion">
             <div class="card-body">
                 <form>
                     <div class="form-group">
-                        <label>ID</label>
                         <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="ID">
-                    </div>
-                    <div>
-                        <label>Name</label>
                         <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Name">
-                    </div>
-                    <div>
-                        <label>Country Code</label>
-                        <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="CountryCode">
-                    </div>
-                    <div>
-                        <label>District</label>
+                        <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Country Code">
                         <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="District">
-                    </div>
-                    <div>
-                        <label>Population</label>
                         <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Population">
                     </div>
                     <div>
@@ -38,6 +25,27 @@
                 </form>
             </div>
         </div>
+
+        <div class="card-header" role="tab" id="headingTwo">
+            <h5 class="mb-0">
+                <a data-toggle="collapse" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTne">Delete City</a>
+            </h5>
+        </div>
+        <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo"
+             data-parent="#accordion">
+            <div class="card-body">
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="ID">
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-primary">Delete</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
         <div class="row pt-4">
             <div class="col-lg-12 table">
                 <table class="table-bordered table-hover " width="100%">

@@ -20,6 +20,6 @@ public class CityDAO extends DAO<CityEntity> {
 
     @Override
     public List<CityEntity> getAll() {
-        return entityManager.createQuery("FROM CityEntity" , CityEntity.class).getResultList();
+        return entityManager.createQuery("FROM CityEntity c ORDER BY c.id ASC" , CityEntity.class).getResultList();
     }
 }

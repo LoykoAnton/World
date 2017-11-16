@@ -21,6 +21,6 @@ public class CountryLanguageDAO extends DAO<CountryLanguageEntity> {
 
     @Override
     public List<CountryLanguageEntity> getAll() {
-        return entityManager.createQuery("FROM CountryLanguageEntity" , CountryLanguageEntity.class).getResultList();
+        return entityManager.createQuery("FROM CountryLanguageEntity order by percentage" , CountryLanguageEntity.class).getResultList();
     }
 }
